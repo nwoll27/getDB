@@ -2,6 +2,7 @@ package getdb.servlet;
 
 import java.io.IOException;
 import java.util.Hashtable;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,10 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import getdb.servlet.LoadProperties;
+import getdb.servlet.TransactionProperties;
+import getdb.process.GetDatabase;
+import getdb.process.ResultObject;
 
 public class GDBServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	TransactionProperties properties = null;
 	
 	/**
 	 * Constructor of the servlet.
@@ -65,8 +69,11 @@ public class GDBServlet extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Hashtable data = new Hashtable();
-		//data = process.processData(properties)
+		Map<String, ResultObject> data = new Hashtable<String, ResultObject>();
+		GetDatabase getDB = new GetDatabase();
+		
+		
+		data = getDB.retrieveData(properties);
 		RequestDispatcher dispatch = request.getRequestDispatcher("jsp/getDB_output.jsp");
 		
 		try {
@@ -89,6 +96,8 @@ public class GDBServlet extends HttpServlet {
 		 * Initialize properties(LoadProperties.getInstance(getServletContext().getInitParameter("ConfigPath"));
 		 * ALTERNATELY LoadProperties.getProperties();
 		 */
+		properties = new TransactionProperties();
+		properties.loadProperties();
 	}
 	
 }
