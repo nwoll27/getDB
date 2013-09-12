@@ -21,7 +21,7 @@ public class TransactionProperties {
 	private void initDefault(){
 		tablesToRetrieve = new ArrayList<String>();
 		dbType = DatabaseType.MSSQL;
-		dbConnectionString = "jdbc:microsoft:sqlserver://ORL01SQL01:1433";		
+		dbConnectionString = "jdbc:sqlserver://sampledb.czvcx7o6sksn.us-west-2.rds.amazonaws.com:1433";		
 		dbName = "Client_Email_ListA";
 		userID = "sa";
 		userPass = "Password1";

@@ -1,4 +1,4 @@
-package getdb.process;
+package getdb.util;
 
 public class DatabaseAccess {
 

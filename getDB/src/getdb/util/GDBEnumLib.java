@@ -2,7 +2,7 @@ package getdb.util;
 
 public class GDBEnumLib {
 	public enum DatabaseType{
-		MSSQL("com.microsoft.jdbc.sqlserver.SQLServerDriver"), 
+		MSSQL("com.microsoft.sqlserver.jdbc.SQLServerDriver"), 
 		DB2("com.ibm.as400.access.AS400JDBCDriver");
 		
 		private final String driverClass;

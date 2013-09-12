@@ -5,6 +5,7 @@ import getdb.util.GDBEnumLib.DatabaseType;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
@@ -26,7 +27,7 @@ public class GetDatabase {
 			Class.forName(this.dbType.getDriverClass());
 			System.out.println(dbType.toString() + " driver loaded!");
 		} catch (Exception e){
-			System.out.println("Failed to load " + dbType.toString() + "driver!");
+			System.out.println("Failed to load " + dbType.toString() + " driver!");
 			e.printStackTrace();
 		}
 		
@@ -44,7 +45,13 @@ public class GetDatabase {
 			}
 		} catch (Exception e) {
 			
-		}		
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		
 		return resultTable;
 	}
