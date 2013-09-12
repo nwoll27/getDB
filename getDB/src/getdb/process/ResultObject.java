@@ -9,6 +9,7 @@ public class ResultObject {
 	private String tableName;
 	private String transaction;
 	private int dbRecordCount;
+	private int dbColumnCount;
 	private String statusMessage;
 	
 	private List<String> dbColumnNames;
@@ -49,6 +50,10 @@ public class ResultObject {
 		return dbRecordCount;
 	}
 
+	public int getDbColumnCount() {
+		return dbColumnCount;
+	}
+
 	public String getStatusMessage() {
 		return statusMessage;
 	}
@@ -63,6 +68,7 @@ public class ResultObject {
 
 	public void setDbColumnNames(List<String> dbColumnNames) {
 		this.dbColumnNames = dbColumnNames;
+		this.dbColumnCount = dbColumnNames.size();
 	}
 
 	public List<List<String>> getDbRows() {

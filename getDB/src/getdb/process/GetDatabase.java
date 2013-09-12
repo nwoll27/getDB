@@ -1,16 +1,19 @@
 package getdb.process;
 
 import getdb.servlet.TransactionProperties;
+import getdb.util.DatabaseAccess;
 import getdb.util.GDBEnumLib.DatabaseType;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
 public class GetDatabase {
+	private String dbConnectionString;
 	private List<String> tablesToRetrieve;
 	private String sqlStatementInput;
 	private TransactionProperties properties;
@@ -20,6 +23,7 @@ public class GetDatabase {
 		Connection con= null;		
 		ResultObject currentTableData = null;
 		Map<String, ResultObject> resultTable = null;
+		List<String> currentColumnNames = null;
 		
 		unloadProperties(transactionProperties);
 		
@@ -37,9 +41,11 @@ public class GetDatabase {
 			
 			for(String table : tablesToRetrieve){
 				currentTableData = new ResultObject();
+				currentColumnNames = new ArrayList<String>();
 				currentTableData.setTableName(table);
 				
-				//Collect data from DatabaseAccess methods
+				currentTableData.setDbRows(DatabaseAccess.selectAllFromTable(con, table, currentColumnNames));
+				currentTableData.setDbColumnNames(currentColumnNames);
 				
 				resultTable.put(currentTableData.getTableName(), currentTableData);
 			}
@@ -61,13 +67,14 @@ public class GetDatabase {
 		dbType = properties.getDbType();
 		tablesToRetrieve = properties.getTablesToRetrieve();
 		sqlStatementInput = properties.getSqlStatementInput();
+		dbConnectionString = properties.getDbConnectionString() + ";databaseName=" + properties.getDbName();
 	}
 	
 	private Connection getConnection(){
 		Connection con = null;
 		
 		try{
-			con = DriverManager.getConnection(properties.getDbConnectionString(), properties.getUserID(), properties.getUserPass());			
+			con = DriverManager.getConnection(dbConnectionString, properties.getUserID(), properties.getUserPass());			
 		} catch(Exception e){
 			e.printStackTrace();
 		}

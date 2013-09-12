@@ -21,11 +21,11 @@ public class TransactionProperties {
 	private void initDefault(){
 		tablesToRetrieve = new ArrayList<String>();
 		dbType = DatabaseType.MSSQL;
-		dbConnectionString = "jdbc:sqlserver://sampledb.czvcx7o6sksn.us-west-2.rds.amazonaws.com:1433";		
-		dbName = "Client_Email_ListA";
-		userID = "sa";
-		userPass = "Password1";
-		tablesToRetrieve.add("ClientEmailList_recipienttype");
+		dbConnectionString = "jdbc:sqlserver://ORL01SQL01:1433";		
+		dbName = "xxxx";
+		userID = "xx";
+		userPass = "xxxx";
+		tablesToRetrieve.add("xxxx");
 		sqlStatementInput = null;
 	}
 
