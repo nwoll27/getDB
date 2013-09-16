@@ -17,40 +17,46 @@ public class GetDatabase {
 	private List<String> tablesToRetrieve;
 	private String sqlStatementInput;
 	private TransactionProperties properties;
-	private DatabaseType dbType;	
-	
-	public Map<String, ResultObject> retrieveData(TransactionProperties transactionProperties){
-		Connection con= null;		
+	private DatabaseType dbType;
+
+	public Map<String, ResultObject> retrieveData(
+			TransactionProperties transactionProperties) {
+		Connection con = null;
 		ResultObject currentTableData = null;
 		Map<String, ResultObject> resultTable = null;
 		List<String> currentColumnNames = null;
-		
+
 		unloadProperties(transactionProperties);
-		
-		try{
+
+		try {
 			Class.forName(this.dbType.getDriverClass());
 			System.out.println(dbType.toString() + " driver loaded!");
-		} catch (Exception e){
-			System.out.println("Failed to load " + dbType.toString() + " driver!");
+		} catch (Exception e) {
+			System.out.println("Failed to load " + dbType.toString()
+					+ " driver!");
 			e.printStackTrace();
 		}
-		
-		try{
+
+		try {
 			resultTable = new Hashtable<String, ResultObject>();
-			con = getConnection();
-			
-			for(String table : tablesToRetrieve){
+
+			con = DatabaseAccess.getConnection(dbConnectionString,
+					properties.getUserID(), properties.getUserPass());
+
+			for (String table : tablesToRetrieve) {
 				currentTableData = new ResultObject();
 				currentColumnNames = new ArrayList<String>();
 				currentTableData.setTableName(table);
-				
-				currentTableData.setDbRows(DatabaseAccess.selectAllFromTable(con, table, currentColumnNames));
+
+				currentTableData.setDbRows(DatabaseAccess.selectAllFromTable(
+						con, table, currentColumnNames));
 				currentTableData.setDbColumnNames(currentColumnNames);
-				
-				resultTable.put(currentTableData.getTableName(), currentTableData);
+
+				resultTable.put(currentTableData.getTableName(),
+						currentTableData);
 			}
 		} catch (Exception e) {
-			
+
 		} finally {
 			try {
 				con.close();
@@ -58,27 +64,30 @@ public class GetDatabase {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return resultTable;
 	}
-	
-	private void unloadProperties(TransactionProperties properties){
+
+	private void unloadProperties(TransactionProperties properties) {
 		this.properties = properties;
 		dbType = properties.getDbType();
 		tablesToRetrieve = properties.getTablesToRetrieve();
 		sqlStatementInput = properties.getSqlStatementInput();
-		dbConnectionString = properties.getDbConnectionString() + ";databaseName=" + properties.getDbName();
+		dbConnectionString = properties.getDbConnectionString()
+				+ ";databaseName=" + properties.getDbName();
 	}
-	
-	private Connection getConnection(){
+
+	@Deprecated
+	private Connection getConnection() {
 		Connection con = null;
-		
-		try{
-			con = DriverManager.getConnection(dbConnectionString, properties.getUserID(), properties.getUserPass());			
-		} catch(Exception e){
+
+		try {
+			con = DriverManager.getConnection(dbConnectionString,
+					properties.getUserID(), properties.getUserPass());
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return con;
 	}
 }
