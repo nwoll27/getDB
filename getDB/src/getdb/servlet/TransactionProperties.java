@@ -26,8 +26,8 @@ public class TransactionProperties {
 		dbType = DatabaseType.MSSQL;
 		dbConnectionString = "jdbc:sqlserver://sampledb2008.czvcx7o6sksn.us-west-2.rds.amazonaws.com:1433";
 		dbName = "AdventureWorks";
-		userID = "sa";
-		userPass = "password";
+		userID = "getDB";
+		userPass = "getDB";
 		sqlStatementInput = null;
 	}
 

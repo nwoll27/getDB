@@ -1,4 +1,81 @@
+html, body {
+	margin: 0;
+    padding: 0;
+}
+
 body {
 	font-size:62.5%;
 	font-family:"Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif";
+	padding:0 10px;	
+	overflow-y:scroll;
+}
+
+header {
+    position: relative;
+	top: 0px;
+	left: 0px;
+	height: 100px;
+	width: 75%;
+	min-width:500px;
+	margin: 0px auto;
+}
+
+header h1 {
+    font-size:2.5em;
+    line-height:90%    
+}
+
+header h2{ 
+    font-size:1.25em;
+    line-height:90%;
+    padding-left:2em;
+}
+
+footer {
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	height:100px;
+	width:100%;
+}
+
+.centered{
+	text-align:center;
+}
+
+.subHead{
+	display: block;
+	font-size: 1.25em;
+	line-height: 90%;
+	padding-left: 2em;
+	-webkit-margin-before: 0.83em;
+	-webkit-margin-after: 0.83em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	font-weight: bold;
+}
+
+.sectionSpacer{
+	height:2em;
+}
+
+.bodyContainer{
+	position:relative;
+	width: 75%;
+	min-width:500px;
+	margin:0px auto 100px auto;
+}
+
+#headerSpacer{
+	height:100px;
+}
+
+#footerPadding{
+	height:100%;
+	padding:0 10px;
+}
+
+#footerContent{
+	background-color:lightgrey;
+	height:100%
 }
