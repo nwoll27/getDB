@@ -41,17 +41,14 @@ for(String table : resultMap.keySet()){
 		<title>getDB - Results!</title>
 		<link rel="stylesheet" href="style/commonStyle.css" />
 		<link rel="stylesheet" href="style/outputStyle.css" />
-		<link rel="stylesheet" href="style/theme/jquery-ui-1.10.3.custom.css">
-		<script src="js/jquery-1.9.1.js"></script>
-		<script src="js/jquery-ui-1.10.3.custom.js"></script>
+		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/redmond/jquery-ui.css"/>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 		<script>
 			$(function() {
 				$( "#summary" ).accordion({ collapsible:false, heightStyle:"content" });
 				
-				$( "#results" ).accordion({ collapsible:true, active:false, heightStyle:"content" });
-				
-				$( "#tabs" ).tabs();
-				
+				$( "#results" ).accordion({ collapsible:true, active:false, heightStyle:"content" });		
 			});
 		</script>
 	</head>
