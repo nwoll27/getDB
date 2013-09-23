@@ -57,7 +57,7 @@ for(String table : resultMap.keySet()){
 			<h1>getDB!</h1>
 			<p class="subHead">Query Results</p>
 		</header>
-		<div class="bodyContainer">		
+		<div id="bodyContainer">		
 			<div class="sectionSpacer"></div>
 			<article id="resultsArticle">
 				<div id="summary">
@@ -78,18 +78,18 @@ for(String table : resultMap.keySet()){
 				</div>
 			</article>
 			
-			<FORM><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
-	
-			<footer>
-				<div id="footerPadding">
-					<div class="bodyContainer" id="footerContent">
-						<p>This application is hosted on Apache Tomcat 7. The
-							AdventureWorks database used by this application is hosted on
-							Amazon Web Services' RDS, running an instance of MS SQL Server
-							2008 Express.</p>
-					</div>
-				</div>
-			</footer>
+			<FORM>
+			<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
+			<div class="sectionSpacer"></div>	
 		</div>
+		<footer>
+			<div id="footerContent">
+				<p>This application is hosted on Apache Tomcat 7. The
+					AdventureWorks database used by this application is hosted on
+					Amazon Web Services' RDS, running an instance of MS SQL Server
+					2008 Express.</p>
+			</div>
+		</footer>
+	
 	</body>
 </html>

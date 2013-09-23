@@ -1,42 +1,55 @@
-html, body {
-	margin: 0;
-    padding: 0;
+html{
+	height:100%;
+	margin:0px;
+	padding:0px;
 }
 
-body {
+body{
+	position:relative;
+	min-height:100%;
+	margin:0px;
+	padding:0px 10px;	
 	font-size:62.5%;
 	font-family:"Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif";
-	padding:0 10px;	
 	overflow-y:scroll;
 }
 
-header {
-    position: relative;
-	top: 0px;
-	left: 0px;
-	height: 100px;
-	width: 75%;
+header{
+    position:relative;
+	top:0px;
+	left:0px;
+	height:10em;
+	width:75%;
 	min-width:500px;
-	margin: 0px auto;
+	margin:0px auto;
 }
 
-header h1 {
+header h1{
+	margin:0px;
+	padding:.3em 0em;
     font-size:2.5em;
     line-height:90%    
 }
 
 header h2{ 
+	margin:0px;
     font-size:1.25em;
     line-height:90%;
     padding-left:2em;
 }
 
-footer {
-	position:fixed;
+footer{
+	position:absolute;
 	bottom:0px;
 	left:0px;
-	height:100px;
+	height:10em;
 	width:100%;
+	min-width:500px;
+	margin:0px;
+}
+
+footer p{
+	margin:0px;
 }
 
 .centered{
@@ -44,38 +57,34 @@ footer {
 }
 
 .subHead{
-	display: block;
-	font-size: 1.25em;
-	line-height: 90%;
-	padding-left: 2em;
-	-webkit-margin-before: 0.83em;
-	-webkit-margin-after: 0.83em;
-	-webkit-margin-start: 0px;
-	-webkit-margin-end: 0px;
-	font-weight: bold;
+	display:block;
+	font-size:1.25em;
+	line-height:90%;
+	padding-left:2em;
+	margin:0.83em 0px;
+	font-weight:bold;
 }
 
 .sectionSpacer{
 	height:2em;
 }
 
-.bodyContainer{
+#bodyContainer{
 	position:relative;
-	width: 75%;
+	width:75%;
 	min-width:500px;
-	margin:0px auto 100px auto;
+	margin:0px auto;
+	padding-bottom:10em;
 }
 
 #headerSpacer{
-	height:100px;
-}
-
-#footerPadding{
-	height:100%;
-	padding:0 10px;
+	height:10em;
 }
 
 #footerContent{
 	background-color:lightgrey;
-	height:100%
+	height:100%;
+	width:75%;
+	min-width:500px;
+	margin:0px auto;
 }

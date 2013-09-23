@@ -24,7 +24,7 @@
 			<h1>getDB!</h1>
 			<p class="subHead">Data retrieval tool</p>
 		</header>
-		<div class="bodyContainer">
+		<div id="bodyContainer">
 			<section id="instructionBar">
 				<p>getDB! is a simple Java EE utility that utilizes .jsp and
 					servlets to provide a UI for interacting with databases.</p>
@@ -69,16 +69,15 @@
 					
 				</form>
 			</section>
-			<footer>
-				<div id="footerPadding">
-					<div class="bodyContainer" id="footerContent">
-						<p>This application is hosted on Apache Tomcat 7. The
-							AdventureWorks database used by this application is hosted on Amazon
-							Web Services' RDS, running an instance of MS SQL Server 2008
-							Express.</p>
-					</div>
-				</div>
-			</footer>
+			<div class="sectionSpacer"></div>			
 		</div>
+		<footer>
+				<div id="footerContent">
+					<p>This application is hosted on Apache Tomcat 7. The
+						AdventureWorks database used by this application is hosted on Amazon
+						Web Services' RDS, running an instance of MS SQL Server 2008
+						Express.</p>
+				</div>
+		</footer>
 	</body>
 </html>

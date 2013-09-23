@@ -1,14 +1,18 @@
-table {
+table{
 	border-collapse:collapse;
     margin:0px;
 }
 
-table, th, td {
+table, th, td{
 	border:1px solid black;
     padding:5px;
     text-align:left;
 }
 
-.bodyContainer{
-	width: 90%;
+#bodyContainer{
+	width:90%;
+}
+
+#footerContent{
+	width:90%;
 }
