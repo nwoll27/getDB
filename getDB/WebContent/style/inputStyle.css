@@ -1,3 +1,7 @@
+.customQueryBox{
+	width:80%;
+}
+
 #statusMessage{
 	margin:0px;
 	color:red;
@@ -20,6 +24,32 @@
 }
 
 #tableSelect{
-    width:30em;
-    height:20em;
+    width:300px;
+    height:200px;
+}
+
+
+
+/*CustomQuery Form Styles*/
+#tableRefBox{
+	margin:0px auto;
+	text-align:left;
+	width:300px;
+}
+
+#tableRefBox ul{
+	list-style-type:none;
+	padding:0px;
+}
+
+/*CustomConnect Form Styles*/
+.customConnectRow{
+	margin:0px auto;
+	text-align:left;
+	min-width:300px;
+	width:80%;
+}
+
+#textConnectionString{
+    width:100%;
 }

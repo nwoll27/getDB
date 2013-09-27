@@ -15,7 +15,9 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 		<script>
 			$(function() {
-				$( "#tabs" ).tabs();				
+				$( "#tabs" ).tabs();
+				
+				$( "#tableRef" ).accordion({ collapsible:true, active:false, heightStyle:"content" });				
 			});
 		</script>
 	</head>
@@ -63,8 +65,64 @@
 								<input id="submit" type="submit" value="Retrieve Tables" name="submit"/>
 							</div>
 						</div>
-						<div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
-						<div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+						<div id="tabs-2">
+							<h2>Enter SQL for AdventureWorks DB</h2>
+							<h4>(This account's access is Read-Only)</h4>
+							<div id="tableRefBox">
+								<div id="tableRef">
+									<h3>Click to Show/Hide a list of tables</h3>
+									<section>
+										<ul>
+											<c:forEach items="${loadedTableNames}" var="option">
+												<li><c:out value="${option}"/></li>
+											</c:forEach>
+										</ul>
+									</section>
+								</div>
+							</div>
+							<div class="sectionSpacer"></div>
+							<textarea class="customQueryBox" name="customQuery" rows="8"></textarea>	
+							<div class="sectionSpacer"></div>
+							<div>
+								<input id="submit" type="submit" value="Execute Statement" name="submit"/>
+							</div>					
+						</div>
+						<div id="tabs-3">
+							<h2>Enter Custom Connection data</h2>
+							<div class="customConnectRow">
+							<span>
+								<label>Database Type
+									<select disabled="disabled">
+										<option value="MSSQL" selected="selected">MSSQL</option>									
+									</select>
+								</label>
+								</span>
+								<span>
+								<label>Database Name
+									<input id="textDBName" type="text" name="dbName"/>
+								</label>
+								</span>
+							</div>
+							<div class="customConnectRow">
+								<label>Database URL
+									<input id="textConnectionString" type="text" name="connectionString" value="jdbc:sqlserver://"/>
+								</label>
+							</div>							
+							<div class="customConnectRow">
+								<label>User ID
+									<input id="textUserID" type="text" name="userID"/>
+								</label>
+								<label>Password
+									<input id="textUserPass" type="text" name="userPass"/>
+								</label>
+							</div>
+							<div class="sectionSpacer"></div>			
+							<textarea class="customQueryBox" name="customConnectQuery" rows="8"></textarea>
+							<div class="sectionSpacer"></div>
+							<div>
+								<input id="submit" type="submit" value="Execute Custom Query" name="submit"/>
+							</div>
+						</div>
 					</div>
 					
 				</form>
